@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <h1>Template Driven Forms</h1>
+  <div class="col-sm-6">
+    <form #loginForm="ngForm" (ngSubmit)="userData(loginForm.value)">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input ngModel type="email" email required class="form-control" aria-describedby="emailHelp" #email="ngModel"
+          placeholder="Enter Email" name="email">
+        <span *ngIf="email.invalid && email.touched " class="error">Email field not required</span>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input ngModel type="password" required class="form-control" name="password" placeholder="Enter Password"
+          #password="ngModel">
+        <span *ngIf="password.invalid && password.touched " class="error">password field not required</span>
+      </div>
+      <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  <div class="col-sm-6">
+  </div>
+</div>
